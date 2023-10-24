@@ -1,13 +1,25 @@
-package com.soit23.enterprise.model;
+package com.soit23.enterprise.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table
 public class Faculty {
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private int id;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "title")
     private String title;
+    @Column(name = "email")
     private String email;
 
+    //Set the Constructors
     public Faculty(){
 
     }
@@ -19,7 +31,7 @@ public class Faculty {
         this.title = title;
         this.email = email;
     }
-
+    //Set the getters and setters
     public int getId() {
         return id;
     }
