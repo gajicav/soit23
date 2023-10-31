@@ -5,6 +5,8 @@ import com.soit23.enterprise.service.FacultyService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -35,6 +37,27 @@ public FacultyController (FacultyService theFacultyService){
 
         return "faculties/list-faculties";
 
+
+
+
+    }
+    @GetMapping("/viewAddForm")
+    public String viewAddForm(Model theModel){
+
+
+    theModel.addAttribute("faculty", theFaculty);
+
+    return "faculties/faculty-form";
+    }
+
+    @PostMapping("/save")
+    public String saveFaculty(@ModelAttribute("faculty") Faculty theFaculty){
+
+    //Register the Faculty
+        facultyService.save(theFaculty);
+
+        //Block duplicate submission from accidental refresh
+        return "redirect:/Faculties/list";
     }
 
 }
