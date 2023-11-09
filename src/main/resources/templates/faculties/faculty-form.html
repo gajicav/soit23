@@ -18,6 +18,11 @@
 <div class="container">
 
     <h4>School of IT Directory</h4>
+
+    <a class="btn btn-danger" data-bs-toggle="collapse" th:href="@{/Faculties/list}" role="button" aria-expanded="false" aria-controls="collapseExample">
+        List of Faculties
+    </a>
+
     <hr>
     <p class="h4 mb-4">Register Faculty</p>
     <form action="#" th:action="@{/Faculties/save}" th:object="${faculty}" method="POST">

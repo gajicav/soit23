@@ -44,6 +44,9 @@ public FacultyController (FacultyService theFacultyService){
     @GetMapping("/viewAddForm")
     public String viewAddForm(Model theModel){
 
+    //Model attribute for the data binding
+    Faculty theFaculty = new Faculty();
+
 
     theModel.addAttribute("faculty", theFaculty);
 
