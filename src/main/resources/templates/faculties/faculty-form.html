@@ -27,6 +27,10 @@
     <p class="h4 mb-4">Register Faculty</p>
     <form action="#" th:action="@{/Faculties/save}" th:object="${faculty}" method="POST">
 
+        <!--Invisible form as needed to update info-->
+        <input type="hidden" th:field="*{id}"/>
+
+
     <input type="text" th:field="*{firstName}"
            class="form-control mb-4 col-4" placeholder="First Name">
 
